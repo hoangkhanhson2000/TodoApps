@@ -15,9 +15,13 @@ namespace TodosBackend.Service.Todos
             throw new NotImplementedException();
         }
 
-        public bool DeleteTodo(Todo todo)
+        public bool DeleteTodo(int id)
         {
-            throw new NotImplementedException();
+            Todo todo=_todosDbContext.Todos.Find(id);
+            _todosDbContext.Todos.Remove(todo);
+            _todosDbContext.SaveChanges();  
+
+            return true;
         }
 
         public List<Todo> GetTodo()

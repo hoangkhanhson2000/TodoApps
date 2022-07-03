@@ -44,8 +44,9 @@ namespace TodosBackend.Controllers
 
         // DELETE api/<TodosController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            return Ok(_todosService.DeleteTodo(id));
         }
     }
 }
