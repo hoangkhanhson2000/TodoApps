@@ -33,7 +33,9 @@ namespace TodosBackend.Service.Todos
 
         public bool UpdateTodo(Todo todo)
         {
-            throw new NotImplementedException();
+            _todosDbContext.Todos.Update(todo);
+            _todosDbContext.SaveChanges();
+            return true;
         }
     }
 }

@@ -10,6 +10,9 @@ export const getTodoAPI = () => {
 export const deleteTodoAPI = (id) => {
     return axiosClient.delete(`${END_POINT.TODOS}/${id}`);
 }
-export const AddOrEditTodoAPI = (todo) => {
+export const AddTodoAPI = (todo) => {
     return axiosClient.post(`${END_POINT.TODOS}`, todo);
+}
+export const EditTodoAPI = (todo) => {
+    return axiosClient.put(`${END_POINT.TODOS}`, todo);
 }
