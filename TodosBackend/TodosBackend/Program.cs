@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using TodosBackend.Data;
 using TodosBackend.Service.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ITodosService, TodosService>();
-
+builder.Services.AddDbContext<TodosDbContext>(option=>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("TodoDatabase"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

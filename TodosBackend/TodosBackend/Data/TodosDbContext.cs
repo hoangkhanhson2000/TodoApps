@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodosBackend.Configuration;
+using TodosBackend.Model;
 using TodosBackend.Seeders;
 
 namespace TodosBackend.Data
@@ -16,7 +17,7 @@ namespace TodosBackend.Data
             modelBuilder.Seed();
 
         }
-
+        public DbSet<Todo> Todos { get; set; }
     }
     
 }
