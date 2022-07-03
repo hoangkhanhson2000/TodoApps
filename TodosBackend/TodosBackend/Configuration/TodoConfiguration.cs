@@ -11,7 +11,7 @@ namespace TodosBackend.Configuration
             builder.ToTable("todos");
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Name).IsRequired();
-            builder.Property(t => t.Iscomplete).HasDefaultValue(false);
+            builder.Property(t => t.Iscomplete).IsRequired().HasDefaultValue(false);
         }
     }
 }

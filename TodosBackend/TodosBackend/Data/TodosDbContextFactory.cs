@@ -10,7 +10,7 @@ namespace TodosBackend.Data
         {
             IConfigurationRoot configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings")
+                .AddJsonFile("appsettings.json")
                 .Build();
             var connectionString = configurationRoot.GetConnectionString("TodoDatabase");
             var optionBuilder = new DbContextOptionsBuilder<TodosDbContext>();
