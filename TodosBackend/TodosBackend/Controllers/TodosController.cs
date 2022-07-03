@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TodosBackend.Model;
 using TodosBackend.Service.Todos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -32,8 +33,9 @@ namespace TodosBackend.Controllers
 
         // POST api/<TodosController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(Todo todo)
         {
+            return Ok(_todosService.AddTodo(todo));
         }
 
         // PUT api/<TodosController>/5
